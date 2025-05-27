@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/login', new URLSearchParams(form));
+      const res = await axios.post('https://neuroncode.onrender.com/login', new URLSearchParams(form));
       localStorage.setItem('token', res.data.access_token);
       setMessage('Inicio de sesión exitoso');
       navigate('/editor');

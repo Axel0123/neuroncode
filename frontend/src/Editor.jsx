@@ -26,7 +26,7 @@ export default function Editor() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/run-code', {
+      const response = await fetch('https://neuroncode.onrender.com/run-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default function Editor() {
       setSuggestions(data.suggestions || []);
       setUsedSuggestions(new Set());
 
-      await fetch('http://localhost:8000/save-execution', {
+      await fetch('https://neuroncode.onrender.com/save-execution', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ export default function Editor() {
   };
 
   const handleShare = async () => {
-    const response = await fetch('http://localhost:8000/share', {
+    const response = await fetch('https://neuroncode.onrender.com/share', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ code, output })
@@ -135,7 +135,7 @@ export default function Editor() {
 
   const handleExplain = async () => {
     setIsExplaining(true);
-    const response = await fetch('http://localhost:8000/explain-code', {
+    const response = await fetch('https://neuroncode.onrender.com/explain-code', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ code })

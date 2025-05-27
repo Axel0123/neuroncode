@@ -12,7 +12,7 @@ function Register() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/register', form);
+      await axios.post('https://neuroncode.onrender.com/register', form);
       setMessage('¡Cuenta creada con éxito!');
       navigate('/');
     } catch {

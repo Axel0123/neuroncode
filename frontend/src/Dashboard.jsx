@@ -7,7 +7,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (token) {
-      axios.get('http://localhost:8000/me', {
+      axios.get('https://neuroncode.onrender.com/me', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => setUsername(res.data.username))
         .catch(() => setUsername('Invalid token'))

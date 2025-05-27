@@ -8,7 +8,7 @@ export default function SharedView() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/share/${id}`)
+    fetch(`https://neuroncode.onrender.com/share/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();

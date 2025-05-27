@@ -7,7 +7,7 @@ export default function History({ onReRun }) {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    fetch("http://localhost:8000/history", {
+    fetch("https://neuroncode.onrender.com/history", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -15,7 +15,7 @@ export default function History({ onReRun }) {
   }, []);
 
   const handleExportPDF = async (item) => {
-    const response = await fetch('http://localhost:8000/export-pdf', {
+    const response = await fetch('https://neuroncode.onrender.com/export-pdf', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

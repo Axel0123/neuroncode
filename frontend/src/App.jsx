@@ -1,11 +1,33 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Login';
+import Register from './Register';
+import Editor from './Editor';
+import History from './History';
+import Navbar from './Navbar';
+import SharedView from './SharedView';
 
-function App() {
+export default function App() {
   return (
-    <div className="p-10 text-center">
-      <h1 className="text-3xl font-bold text-white">Welcome to NeuronCode 🚀</h1>
-    </div>
-  )
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/editor" element={<Editor />} />
+        <Route
+          path="/history"
+          element={
+            <History
+              onReRun={(code) => {
+                localStorage.setItem("codeToRun", code);
+                window.location.href = "/editor";
+              }}
+            />
+          }
+        />
+        <Route path="/shared/:id" element={<SharedView />} />
+      </Routes>
+    </Router>
+  );
 }
-
-export default App

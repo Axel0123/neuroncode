@@ -11,7 +11,7 @@ export default function Navbar() {
   useEffect(() => {
     if (token) {
       axios
-        .get('http://localhost:8000/me', {
+        .get('https://neuroncode.onrender.com/me', {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUsername(res.data.username))
